@@ -25,4 +25,21 @@ def word_substituter(string)
   splitTweet.join(" ")
 end
 
-puts word_substituter("Hello, my name is Daniel, I love you very much.")
+def bulk_tweet_shortener(array)
+  array.collect { |x| puts word_substituter(x) }
+end
+
+def selective_tweet_shortener(string)
+  if string.length > 140
+    word_substituter(string)
+  else string
+  end
+end
+
+def shortened_tweet_truncator(string)
+  shortened = selective_tweet_shortener(string)
+  if shortened.length > 140
+    shortened.slice!(0..136) << "..."
+  else string
+  end
+end
