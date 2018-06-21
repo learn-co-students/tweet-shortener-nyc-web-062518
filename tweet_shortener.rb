@@ -19,7 +19,7 @@ def word_substituter(string)
   splitTweet.each_with_index { | word, i |
     wordClean = word.downcase.gsub(/[\W\s\d]/, '')
     if keys.include? wordClean.to_sym
-      splitTweet[i] = dictionary[wordClean.to_sym]
+      splitTweet[i] = splitTweet[i].downcase.gsub wordClean, dictionary[wordClean.to_sym]
     end
   }
   splitTweet.join(" ")
