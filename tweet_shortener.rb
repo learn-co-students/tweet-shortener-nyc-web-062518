@@ -17,7 +17,7 @@ def word_substituter(string)
   splitTweet = string.split(" ")
   keys = dictionary.keys
   splitTweet.each_with_index { | word, i |
-    wordClean = word.downcase.gsub(/[\w\s\d]/, '')
+    wordClean = word.downcase.gsub(/[\W\s\d]/, '')
     if keys.include? wordClean.to_sym
       splitTweet[i] = dictionary[wordClean.to_sym]
     end
@@ -25,4 +25,4 @@ def word_substituter(string)
   splitTweet.join(" ")
 end
 
-word_substituter("Hi, my name is Daniel, I love you very much.")
+puts word_substituter("Hello, my name is Daniel, I love you very much.")
